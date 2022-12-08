@@ -2,15 +2,15 @@ plugins {
     id "jacoco"
     id "java"
     id "application"
-    id "org.sonarqube" version "3.4.0.2513"
+    id "org.sonarqube" version "3.5.0.2730"
 }
 
-description = 'Example of SonarQube Scanner for Gradle Usage'
+description = 'SC Jenkis And Gradle'
 version = '1.0'
 
 sonarqube {
     properties {
-        property 'sonar.projectName', 'Example of SonarQube Scanner for Gradle Usage'
+        property 'sonar.projectName', 'Gradle with SC and Jenkis'
     }
 }
 
