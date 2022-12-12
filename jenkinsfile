@@ -1,10 +1,14 @@
-node {
-  stage('SCM') {
-    git 'https://github.com/yacine-maghezzi-sonarsource/scjks-gradle-example.git'
-  }
-  stage('SonarQube analysis') {
-    withSonarQubeEnv(installationName: 'SonarCloud') { // Will pick the global server connection you have configured
-      sh './gradlew sonarqube -Dsonar.organization=yacine-maghezzi-sonarsource -Dsonar.projectkey=yacine-maghezzi-sonarsource_scjks-gradle-example'
+pipeline {
+  agent any
+  stages {
+    stage('SonarCloud analysis') {
+      steps {
+        withSonarQubeEnv(installationName: 'SonarCloud') {
+          script {
+            sh './gradlew sonarqube -Dsonar.organization=yacine-maghezzi-sonarsource -Dsonar.projectkey=yacine-maghezzi-sonarsource_scjks-gradle-example'
+          }
+        }
+      }
     }
   }
 }
