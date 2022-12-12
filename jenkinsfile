@@ -4,7 +4,7 @@ node {
   }
   stage('SonarQube analysis') {
     withSonarQubeEnv(installationName: 'SonarCloud') { // Will pick the global server connection you have configured
-      sh './gradlew sonarqube'
+      sh './gradlew sonarqube -Dsonar.organization=yacine-maghezzi-sonarsource -Dsonar.projectkey=yacine-maghezzi-sonarsource_scjks-gradle-example'
     }
   }
 }
