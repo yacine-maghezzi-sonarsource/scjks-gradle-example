@@ -5,6 +5,7 @@ pipeline {
       steps {
         withSonarQubeEnv(installationName: 'SonarCloud') {
           script {
+            def $JAVA_HOME = tool 'JDK11';
             sh 'export JAVA_HOME="/usr/local/opt/openjdk@11/"'
             sh 'echo $JAVA_HOME'
             sh './gradlew --status'
