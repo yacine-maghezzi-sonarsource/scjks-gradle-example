@@ -7,6 +7,8 @@ pipeline {
           script {
             sh 'export JAVA_HOME="/usr/local/opt/openjdk@11/"'
             sh 'echo $JAVA_HOME'
+            sh './gradlew --status'
+            sh 'java --version'
             sh './gradlew sonarqube -Dsonar.organization=yacine-maghezzi-sonarsource -Dsonar.projectkey=yacine-maghezzi-sonarsource_scjks-gradle-example -S'
           }
         }
