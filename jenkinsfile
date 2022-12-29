@@ -5,7 +5,7 @@ pipeline {
       steps {
         withSonarQubeEnv(installationName: 'SonarCloud') {
           script {
-            sh 'JAVA_HOME="/usr/local/opt/openjdk@11/" ./gradlew sonarqube -Dsonar.organization=yacine-maghezzi-sonarsource -Dsonar.projectkey=yacine-maghezzi-sonarsource_scjks-gradle-example -S'
+            sh 'JAVA_HOME="/usr/local/opt/openjdk@11/" ./gradlew sonarqube -Dsonar.branch.name=${env.BRANCH_NAME} -Dsonar.organization=yacine-maghezzi-sonarsource -Dsonar.projectkey=yacine-maghezzi-sonarsource_scjks-gradle-example -S'
           }
         }
       }
