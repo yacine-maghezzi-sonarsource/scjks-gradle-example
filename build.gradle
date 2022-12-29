@@ -11,6 +11,8 @@ version = '1.0'
 sonarqube {
     properties {
         property 'sonar.projectName', 'Gradle with SC and Jenkis'
+        property "sonar.sources", "deploy"
+        
     }
 }
 
